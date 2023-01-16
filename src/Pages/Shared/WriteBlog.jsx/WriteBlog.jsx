@@ -11,8 +11,12 @@ const WriteBlog = () => {
                         <input type="file" name="files" id="files" className="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-300 dark:text-gray-400 dark:bg-white" />
                     </div>
                     <textarea className="textarea w-full" placeholder="Tell your story ..."></textarea>
-                    <button className="btn btn-primary">Publish</button>
                 </fieldset>
+                <div>
+                    <div>
+                        <button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 dark:bg-violet-400 focus:ring-violet-400 hover:ring-violet-400 dark:text-gray-100">Publish</button>
+                    </div>
+                </div>
             </form>
         </div>
     );

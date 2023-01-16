@@ -6,7 +6,6 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/myblog'>My Blog</Link></li>
         <li><Link to='/writeblog'>Write Blog</Link></li>
-        <li><Link to='/login'>Log In</Link></li>
     </React.Fragment>
     return (
         <div>
@@ -30,7 +29,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Blog</Link>
+                    <Link to='/login' className="btn">LogIn</Link>
                 </div>
             </div>
         </div>
