@@ -1,4 +1,3 @@
-import React from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ const Allblogs = ({ blog, refetch }) => {
     const handledelete = id => {
         const proceed = window.confirm('Are you sure,you want to delete this blog')
         if (proceed) {
-            fetch(`http://localhost:5000/blogs/${id}`, {
+            fetch(`https://blogging-site-server.vercel.app/blogs/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

@@ -7,7 +7,7 @@ const Myblog = () => {
         queryKey: ['blogs'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/blogs');
+                const res = await fetch('https://blogging-site-server.vercel.app/blogs');
                 const data = await res.json();
                 return data;
             }
@@ -18,7 +18,7 @@ const Myblog = () => {
     })
     return (
         <div className='mx-auto'>
-            <h1 className='text-center font-bold text-xl'>All Your Blogs</h1>
+            <h1 className='text-center font-bold text-xl mb-5'>See all the Blogs</h1>
             <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {
                     blogs?.map(blog => <Allblogs key={blog._id}

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/Authprovider';
 
 const WriteBlog = () => {
     const { register, handleSubmit } = useForm();
+    const { user } = useContext(AuthContext);
     const imageHostingKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate()
     const handleblog = data => {
@@ -26,7 +28,7 @@ const WriteBlog = () => {
                         texts: data.texts,
                         image: imgdata.data.url
                     }
-                    fetch('http://localhost:5000/blogs', {
+                    fetch('https://blogging-site-server.vercel.app/blogs', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -55,19 +57,19 @@ const WriteBlog = () => {
                     </div>
                     <div className='mt-10'>
                         <label className="label">
-                            <span className="label-text">Type your name</span>
+                            <span className="label-text dark:text-violet-900">Type your name</span>
                         </label>
                         <input type="text" placeholder="Type here" {...register('name')} className="input input-bordered w-full" />
                     </div>
                     <div className='mt-10'>
                         <label className="label">
-                            <span className="label-text">Type Your email</span>
+                            <span className="label-text dark:text-violet-900">Your email</span>
                         </label>
-                        <input type="email" placeholder="Type here" {...register('email')} className="input input-bordered w-full" />
+                        <input type="email" placeholder="Type here" {...register('email')} defaultValue={user?.email} className="input input-bordered w-full dark:text-violet-900" />
                     </div>
                     <div className='mt-10'>
                         <label className="label">
-                            <span className="label-text">Tell us about your story.</span>
+                            <span className="label-text dark:text-violet-900 ">Tell us about your story.</span>
                         </label>
                         <textarea {...register('texts')} className="textarea w-full" placeholder="Tell your story ..."></textarea>
                     </div>
