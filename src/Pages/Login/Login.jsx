@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/Authprovider';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-
+    const { Signin } = useContext(AuthContext);
     const handleSigIn = data => {
         console.log(data);
+        Signin(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error));
     }
     return (
         <div className='container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-200 ng-untouched ng-pristine ng-valid text-black'>
