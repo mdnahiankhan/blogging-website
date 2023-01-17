@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Myblog from '../Shared/Myblog';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Myblog></Myblog>
         </div>
     );
 };

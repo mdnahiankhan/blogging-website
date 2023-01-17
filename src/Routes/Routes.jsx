@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Myblog from "../Pages/Shared/Myblog";
 import WriteBlog from "../Pages/Shared/WriteBlog.jsx/WriteBlog";
+import PrivateRoutes from "./PrivateRoutes/PrivateRutes";
 
 export const router = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <PrivateRoutes><Home></Home></PrivateRoutes>
             },
             {
                 path: '/login',
@@ -25,11 +26,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myblog',
-                element: <Myblog></Myblog>
+                element: <PrivateRoutes> <Myblog></Myblog></PrivateRoutes>
             },
             {
                 path: '/writeblog',
-                element: <WriteBlog></WriteBlog>
+                element: <PrivateRoutes><WriteBlog></WriteBlog></PrivateRoutes>
             }
         ]
     }

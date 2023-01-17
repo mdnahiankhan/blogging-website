@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 const WriteBlog = () => {
     const { register, handleSubmit } = useForm();
@@ -32,7 +33,10 @@ const WriteBlog = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result);
+                            if (result.acknowledged > 0) {
+                                toast('Your Blog is Published')
+                                console.log(result);
+                            }
                         })
                 }
             })
