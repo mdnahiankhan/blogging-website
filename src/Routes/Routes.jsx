@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Myblog from "../Pages/Shared/Myblog";
 import WriteBlog from "../Pages/Shared/WriteBlog.jsx/WriteBlog";
+import UpdateUser from "../Pages/Update/UpdateUser";
 import PrivateRoutes from "./PrivateRoutes/PrivateRutes";
 
 export const router = createBrowserRouter([
@@ -27,6 +28,11 @@ export const router = createBrowserRouter([
             {
                 path: '/myblog',
                 element: <PrivateRoutes> <Myblog></Myblog></PrivateRoutes>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateUser></UpdateUser>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
             },
             {
                 path: '/writeblog',

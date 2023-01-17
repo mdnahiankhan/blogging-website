@@ -1,10 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const WriteBlog = () => {
     const { register, handleSubmit } = useForm();
     const imageHostingKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate()
     const handleblog = data => {
         const image = data.image[0];
         const formdata = new FormData();
@@ -36,6 +38,7 @@ const WriteBlog = () => {
                             if (result.acknowledged > 0) {
                                 toast('Your Blog is Published')
                                 console.log(result);
+                                navigate('/')
                             }
                         })
                 }
@@ -64,7 +67,7 @@ const WriteBlog = () => {
                     </div>
                     <div className='mt-10'>
                         <label className="label">
-                            <span className="label-text">Tell us abput your story.</span>
+                            <span className="label-text">Tell us about your story.</span>
                         </label>
                         <textarea {...register('texts')} className="textarea w-full" placeholder="Tell your story ..."></textarea>
                     </div>

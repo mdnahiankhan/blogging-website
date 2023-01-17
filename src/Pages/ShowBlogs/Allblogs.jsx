@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const Allblogs = ({ blog, refetch }) => {
     const { name, image, email, texts, _id } = blog;
@@ -21,7 +22,7 @@ const Allblogs = ({ blog, refetch }) => {
     }
     return (
         <div>
-            <div className="max-w-lg p-4 shadow-md dark:bg-gray-100 dark:text-gray-900">
+            <div className="max-w-lg p-4 shadow-md dark:bg-gray-100 dark:text-gray-900 mb-4">
                 <div className="space-y-4">
                     <div className="space-y-2">
                         <img src={image} alt="" className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
@@ -35,7 +36,9 @@ const Allblogs = ({ blog, refetch }) => {
                     </div>
                     <div className='flex justify-between'>
                         <button onClick={() => handledelete(_id)} className="btn btn-outline btn-accent">Delete</button>
-                        <button className="btn btn-outline btn-accent">Update</button>
+                        <Link to={`/update/${blog._id}`}>
+                            <button className="btn btn-outline btn-accent">Update</button>
+                        </Link>
                     </div>
                 </div>
             </div>

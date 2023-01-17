@@ -15,7 +15,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Myblog></Myblog>
+            <div className='flex'>
+                <Myblog></Myblog>
+            </div>
         </div>
     );
 };
