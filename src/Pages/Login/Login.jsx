@@ -25,7 +25,7 @@ const Login = () => {
     }
     return (
         <div className='container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-200 ng-untouched ng-pristine ng-valid text-black'>
-            <h1 className="text-2xl font-bold text-center">SignUp</h1>
+            <h1 className="text-2xl font-bold text-center">Sign In</h1>
             <form onSubmit={handleSubmit(handleSigIn)} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block dark:text-gray-900">Enter Your Email</label>

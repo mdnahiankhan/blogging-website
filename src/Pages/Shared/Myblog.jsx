@@ -17,9 +17,9 @@ const Myblog = () => {
         }
     })
     return (
-        <div className='mx-auto'>
+        <div className=' max-w-[1440px] mx-auto'>
             <h1 className='text-center font-bold text-xl mb-5'>See all the Blogs</h1>
-            <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+            <div className='grid gap-2 grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
                 {
                     blogs?.map(blog => <Allblogs key={blog._id}
                         blog={blog}

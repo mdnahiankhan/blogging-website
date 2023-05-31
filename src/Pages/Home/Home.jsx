@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Myblog from '../Shared/Myblog';
+import About from '../../About/About';
+import Messages from '../Message/Messages';
 
 const Home = () => {
     return (
         <div>
-            <div className="hero min-h-screen mb-5" style={{ backgroundImage: `url("https://www.impactbnd.com/hubfs/best-blogging-platform-featured.jpg")` }}>
+            <div className="hero min-h-screen mb-5 " style={{ backgroundImage: `url("https://www.impactbnd.com/hubfs/best-blogging-platform-featured.jpg")` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -17,6 +19,12 @@ const Home = () => {
             </div>
             <div className='flex'>
                 <Myblog></Myblog>
+            </div>
+            <div>
+                <About></About>
+            </div>
+            <div>
+                <Messages></Messages>
             </div>
         </div>
     );

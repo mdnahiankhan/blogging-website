@@ -7,6 +7,8 @@ import Myblog from "../Pages/Shared/Myblog";
 import WriteBlog from "../Pages/Shared/WriteBlog.jsx/WriteBlog";
 import UpdateUser from "../Pages/Update/UpdateUser";
 import PrivateRoutes from "./PrivateRoutes/PrivateRutes";
+import Details from "../Pages/ShowBlogs/Details";
+import HistoryBlogs from "../History/HistoryBlogs";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +35,15 @@ export const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <UpdateUser></UpdateUser>,
                 loader: ({ params }) => fetch(`https://blogging-site-server.vercel.app/blogs/${params.id}`)
+            },
+            {
+                path: '/blog/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`https://blogging-site-server.vercel.app/blogs/${params.id}`)
+            },
+            {
+                path: '/history',
+                element: <HistoryBlogs></HistoryBlogs>
             },
             {
                 path: '/writeblog',

@@ -9,12 +9,11 @@ const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const navigate = useNavigate()
     const handleSignUp = data => {
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/')
+                navigate('/');
                 toast('User created successfully.')
                 const userInfo = {
                     displayName: data.name

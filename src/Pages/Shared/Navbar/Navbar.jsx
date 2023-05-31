@@ -13,9 +13,10 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/myblog'>My Blog</Link></li>
         <li><Link to='/writeblog'>Write Blog</Link></li>
+        <li><Link to='/history'>History</Link></li>
     </React.Fragment>
     return (
-        <div>
+        <div className='max-w-[1440px] mx-auto bg-slate-600'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">

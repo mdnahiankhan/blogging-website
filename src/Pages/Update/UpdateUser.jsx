@@ -34,7 +34,7 @@ const UpdateUser = () => {
     }
     return (
         <div>
-            <h1>You have to Update for :{storedBlog?.name}</h1>
+            <h1 className='text-center font-bold mb-4'>You have to Update for : {storedBlog?.name}</h1>
             <h1 className='text-xl font-bold text-center'>Update Your Opinion</h1>
             <form onSubmit={handleUpdate} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-200 ng-untouched ng-pristine ng-valid text-black">
                 <fieldset className="w-full text-center space-y-1 dark:text-gray-900 mt-4 mb-4">
