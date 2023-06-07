@@ -33,7 +33,7 @@ const UpdateUser = () => {
         setUser(newUser);
     }
     return (
-        <div>
+        <div className='font-serif mb-4'>
             <h1 className='text-center font-bold mb-4'>You have to Update for : {storedBlog?.name}</h1>
             <h1 className='text-xl font-bold text-center'>Update Your Opinion</h1>
             <form onSubmit={handleUpdate} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-200 ng-untouched ng-pristine ng-valid text-black">
@@ -56,7 +56,7 @@ const UpdateUser = () => {
                             <span className="label-text">Update your story.</span>
                         </label>
                         <textarea onChange={handleInputchange}
-                            defaultValue={storedBlog.texts} name="texts" className="textarea w-full" placeholder="Tell your story ..."></textarea>
+                            defaultValue={storedBlog.texts} name="texts" className="textarea w-full h-full" placeholder="Tell your story ..."></textarea>
                     </div>
                 </fieldset>
                 <div>

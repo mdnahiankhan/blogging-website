@@ -26,6 +26,8 @@ const WriteBlog = () => {
                         name: data.name,
                         email: data.email,
                         texts: data.texts,
+                        date: data.date,
+                        title: data.title,
                         image: imgdata.data.url
                     }
                     fetch('https://blogging-site-server.vercel.app/blogs', {
@@ -47,9 +49,9 @@ const WriteBlog = () => {
             })
     }
     return (
-        <div>
+        <div className='font-serif'>
             <h1 className='text-xl font-bold text-center'>Share Your Opinion</h1>
-            <form onSubmit={handleSubmit(handleblog)} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-200 ng-untouched ng-pristine ng-valid text-black">
+            <form onSubmit={handleSubmit(handleblog)} noValidate="" className="container w-full max-w-2xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-50 ng-untouched ng-pristine ng-valid text-black mb-5">
                 <fieldset className="w-full text-center space-y-1 dark:text-gray-900 mt-4 mb-4">
                     <label htmlFor="files" className="block text-sm font-medium ">Attachments Your Image or other Document</label>
                     <div className="mx-auto">
@@ -59,19 +61,31 @@ const WriteBlog = () => {
                         <label className="label">
                             <span className="label-text dark:text-violet-900">Type your name</span>
                         </label>
-                        <input type="text" placeholder="Type here" {...register('name')} className="input input-bordered w-full" />
+                        <input type="text" placeholder="Type here" {...register('name')} required className="input input-bordered w-full" />
                     </div>
                     <div className='mt-10'>
                         <label className="label">
                             <span className="label-text dark:text-violet-900">Your email</span>
                         </label>
-                        <input type="email" placeholder="Type here" {...register('email')} defaultValue={user?.email} className="input input-bordered w-full dark:text-violet-900" />
+                        <input type="email" placeholder="Type here" {...register('email')} readOnly required defaultValue={user?.email} className="input input-bordered w-full dark:text-violet-900" />
+                    </div>
+                    <div className='mt-10'>
+                        <label className="label">
+                            <span className="label-text dark:text-violet-900">Enter Title.</span>
+                        </label>
+                        <input type="title" placeholder="Type here" {...register('title')} className="input input-bordered w-full dark:text-violet-900" />
+                    </div>
+                    <div className='mt-10'>
+                        <label className="label">
+                            <span className="label-text dark:text-violet-900">Published Date</span>
+                        </label>
+                        <input type="date" placeholder="Put the date" {...register('date')} required defaultValue={user?.email} className="input input-bordered w-full dark:text-violet-900" />
                     </div>
                     <div className='mt-10'>
                         <label className="label">
                             <span className="label-text dark:text-violet-900 ">Tell us about your story.</span>
                         </label>
-                        <textarea {...register('texts')} className="textarea w-full" placeholder="Tell your story ..."></textarea>
+                        <textarea {...register('texts')} className="textarea w-full h-full" placeholder="Tell your story ..."></textarea>
                     </div>
                 </fieldset>
                 <div>

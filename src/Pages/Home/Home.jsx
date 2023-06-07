@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Myblog from '../Shared/Myblog';
 import About from '../../About/About';
 import Messages from '../Message/Messages';
+import Statistics from '../../Statistics/Statistics';
+import Availableity from '../../GetTouch/Availableity';
+import Contact from '../../GetTouch/Contact';
 
 const Home = () => {
     return (
@@ -25,6 +28,15 @@ const Home = () => {
             </div>
             <div>
                 <Messages></Messages>
+            </div>
+            <div>
+                <Statistics></Statistics>
+            </div>
+            <div>
+                <Availableity></Availableity>
+            </div>
+            <div>
+                <Contact></Contact>
             </div>
         </div>
     );

@@ -7,14 +7,14 @@ import { AuthContext } from '../../contexts/Authprovider';
 const Register = () => {
     const { register, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleSignUp = data => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
                 toast('User created successfully.')
+                navigate('/');
                 const userInfo = {
                     displayName: data.name
                 }
