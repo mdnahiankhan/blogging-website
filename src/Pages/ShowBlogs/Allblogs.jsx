@@ -1,12 +1,12 @@
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { addToHistory } from '../../redux/actionCreators/blogAction';
 
 const Allblogs = ({ blog, refetch }) => {
     const { name, image, email, texts, _id, date, title } = blog;
+    // const { user } = useContext(AuthContext);
     const dispatch = useDispatch()
-
     const handledelete = id => {
         const proceed = window.confirm('Are you sure,you want to delete this blog')
         if (proceed) {
@@ -23,14 +23,14 @@ const Allblogs = ({ blog, refetch }) => {
                 })
         }
     }
-
+    const { pathname } = useLocation()
 
     return (
         <div>
-            <div className="max-w-[1440px] mx-auto p-4 shadow-md dark:bg-gray-100 dark:text-gray-900 mb-4 font-serif">
+            <div className="max-w-[1440px] mx-auto p-4 h-full shadow-md dark:bg-gray-100 dark:text-gray-900 font-serif mb-2">
                 <div className="">
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
-                        <figure><img className='h-full' src={image} alt="Album" /></figure>
+                    <div className="card h-96 lg:card-side bg-base-100 shadow-xl">
+                        <figure><img className='h-full w-screen' src={image} alt="Album" /></figure>
                         <div className="card-body">
                             <div>
                                 <h2 className="card-title">{name}</h2>
@@ -47,12 +47,12 @@ const Allblogs = ({ blog, refetch }) => {
                                     <h2>{texts}</h2>
                             }</>
                             <div className="card-actions justify-end">
-                                <div className='flex justify-between'>
+                                {pathname.includes("user") && (<div className='flex justify-between'>
                                     <button onClick={() => handledelete(_id)} className="-ml-2 btn btn-sm btn-error">Delete</button>
-                                </div>
-                                <Link to={`/update/${blog._id}`}>
+                                </div>)}
+                                {pathname.includes("user") && (<Link to={`/update/${blog._id}`}>
                                     <button className=" btn btn-sm btn-primary">Edit</button>
-                                </Link>
+                                </Link>)}
                             </div>
                         </div>
                     </div>
